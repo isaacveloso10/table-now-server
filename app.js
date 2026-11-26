@@ -17,6 +17,12 @@ app.get("/", (req, res) => {
     res.send("Table Now API is running");
 });
 
+const indexRouter = require("./routes/index.routes")
+app.use("/api", indexRouter)
+
+const handleErrors = require("./errors");
+handleErrors(app)
+
 const PORT = 5005
 
 app.listen(PORT, () => {
